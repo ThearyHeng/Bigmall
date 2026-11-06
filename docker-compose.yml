@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bigmallcambodia:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production

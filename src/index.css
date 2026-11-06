@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Kantumruy Pro', 'Inter', system-ui, sans-serif;
+  --color-primary: #1e3a5f;
+  --color-primary-dark: #0f2744;
+  --color-gold: #8b6914;
+  --color-gold-light: #d4b878;
+  --color-cloud: #f0f4f8;
+  --color-surface: #f8fafc;
+}
+
+:root {
+  --color-primary: #1e3a5f;
+  --color-primary-dark: #0f2744;
+  --color-gold: #8b6914;
+  --color-gold-light: #d4b878;
+  --color-background: #fff;
+  --color-cloud: #f0f4f8;
+  --color-cloud-20: #f0f4f833;
+  --color-text-primary: #000;
+  --color-text-secondary: #6b6666;
+  --color-text-muted: #b0a8a8;
+  --color-border: #d4b878;
+  --color-placeholder: #b0a8a8;
+  --color-success: #1e3a5f;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kantumruy Pro', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+  background: #ffffff;
+  color: #111827;
+  letter-spacing: normal;
+}
+
+/* Khmer Typography & letter rendering rules */
+.font-khmer {
+  font-family: 'Kantumruy Pro', system-ui, sans-serif;
+  letter-spacing: 0px !important;
+  line-height: 1.6 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: normal;
+}
+
+/* Custom background helper */
+.bg-surface {
+  background-color: #f8fafc;
+}
+
+.bg-primary {
+  background-color: #1e3a5f;
+}
+
+.bg-primary-dark {
+  background-color: #0f2744;
+}
+
+.bg-gold {
+  background-color: #8b6914;
+}
+
+.bg-gold-light {
+  background-color: #d4b878;
+}
+
+.text-gold {
+  color: #8b6914;
+}
+
+.text-gold-light {
+  color: #d4b878;
+}
+
+.text-primary {
+  color: #1e3a5f;
+}
+
+/* Animation helpers */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
