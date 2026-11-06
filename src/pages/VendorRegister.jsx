@@ -54,7 +54,7 @@ export default function VendorRegister({ lang, setLang }) {
     // Step 7: Onsite Visit
     visitDate: '2026-10-15',
     visitTimeSlot: '10:00 AM - 11:30 AM',
-    visitLocationType: 'merchant_location', // 'merchant_location' | 'hang24_office'
+    visitLocationType: 'merchant_location', // 'merchant_location' | 'bigmall_office'
   });
 
   const [otpTimer, setOtpTimer] = useState(60);
@@ -208,7 +208,7 @@ export default function VendorRegister({ lang, setLang }) {
                 </Link>
 
                 <a
-                  href="https://t.me/hang24kh"
+                  href="https://t.me/bigmallcambodia"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3.5 border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold rounded-xl transition-all flex items-center justify-center gap-2"
@@ -901,8 +901,8 @@ export default function VendorRegister({ lang, setLang }) {
                             <input
                               type="radio"
                               name="loc"
-                              checked={formData.visitLocationType === 'hang24_office'}
-                              onChange={() => setFormData({ ...formData, visitLocationType: 'hang24_office' })}
+                              checked={formData.visitLocationType === 'bigmall_office'}
+                              onChange={() => setFormData({ ...formData, visitLocationType: 'bigmall_office' })}
                               className="text-[#8b6914] focus:ring-[#8b6914]"
                             />
                             <div>

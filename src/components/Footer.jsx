@@ -30,7 +30,7 @@ export default function Footer({ t }) {
             <div className="flex items-center gap-3">
               {/* Facebook */}
               <a
-                href="https://www.facebook.com/hang24hang/"
+                href="https://www.facebook.com/bigmallcambodia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#8b6914] text-white flex items-center justify-center transition-all duration-200"
@@ -43,7 +43,7 @@ export default function Footer({ t }) {
 
               {/* Instagram */}
               <a
-                href="https://www.instagram.com/hang24kh/"
+                href="https://www.instagram.com/bigmallcambodia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#8b6914] text-white flex items-center justify-center transition-all duration-200"
@@ -56,7 +56,7 @@ export default function Footer({ t }) {
 
               {/* TikTok */}
               <a
-                href="https://www.tiktok.com/@hang24kh"
+                href="https://www.tiktok.com/@bigmallcambodia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#8b6914] text-white flex items-center justify-center transition-all duration-200"
@@ -69,7 +69,7 @@ export default function Footer({ t }) {
 
               {/* Telegram */}
               <a
-                href="https://t.me/hang24kh"
+                href="https://t.me/bigmallcambodia"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#8b6914] text-white flex items-center justify-center transition-all duration-200"
@@ -105,7 +105,7 @@ export default function Footer({ t }) {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://t.me/hang24kh"
+                href="https://t.me/bigmallcambodia"
                 className="group flex items-center justify-center gap-2 px-6 py-3.5 bg-[#8b6914] hover:bg-[#a67e1a] text-white font-bold rounded-xl transition-all shadow-md hover:shadow-lg w-full"
               >
                 <span>{footer.telegramBtn}</span>
@@ -120,7 +120,7 @@ export default function Footer({ t }) {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs sm:text-sm text-white/50">
           <p>{footer.copyright}</p>
           <div className="flex gap-6">
-            <a href="https://vendor.hang24.shop/" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">
+            <a href="https://vendor.bigmallcambodia.com/" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">
               Vendor Portal
             </a>
             <a href="#footer" className="hover:text-white/80 transition-colors">

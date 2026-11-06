@@ -69,7 +69,7 @@ export default function Hero({ t, onOpenSellerModal }) {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://t.me/hang24kh"
+                href="https://t.me/bigmallcambodia"
                 className="inline-flex items-center gap-2 px-6 py-3.5 border border-white/30 text-white hover:bg-white/15 active:scale-95 rounded-lg transition-all backdrop-blur-sm"
               >
                 <Send className="w-4 h-4 text-white/80" />

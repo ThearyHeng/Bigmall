@@ -694,7 +694,7 @@ export default function StoreProfilePage({ lang, setLang }) {
 
             <div className="p-4 bg-[#f8fafc] border-2 border-dashed border-gray-200 rounded-2xl mb-4">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://pay.ababank.com/hg24-artisan-88392"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=https://pay.ababank.com/bigmall-artisan-88392"
                 alt="ABA QR"
                 className="w-48 h-48 mx-auto rounded-xl"
               />

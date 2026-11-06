@@ -84,13 +84,13 @@ export default function App() {
               element={<StoreProfilePage lang={lang} setLang={setLang} />}
             />
 
-            {/* Vendor Registration Portal (matching vendor.hang24.shop/register) */}
+            {/* Vendor Registration Portal (matching vendor.bigmallcambodia.com/register) */}
             <Route
               path="/register"
               element={<VendorRegister lang={lang} setLang={setLang} />}
             />
 
-            {/* Vendor Login Portal (matching vendor.hang24.shop/login) */}
+            {/* Vendor Login Portal (matching vendor.bigmallcambodia.com/login) */}
             <Route
               path="/login"
               element={<VendorLogin lang={lang} setLang={setLang} />}

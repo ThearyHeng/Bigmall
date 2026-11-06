@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function WhyLayLong24({ t }) {
-  const section = t.whyBigMall || t.whyLayLong24 || t.whyHang24 || {};
+  const section = t.whyBigMall || t.whyLayLong24 || {};
 
   const features = [
     {

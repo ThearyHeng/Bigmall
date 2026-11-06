@@ -89,7 +89,7 @@ export default function SellerModal({ isOpen, onClose, t, lang }) {
                   {sell.success?.backBtn || 'Back to BigMallCambodia.com'}
                 </button>
                 <a
-                  href="https://vendor.hang24.shop/"
+                  href="https://vendor.bigmallcambodia.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3 border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold rounded-lg transition-colors"

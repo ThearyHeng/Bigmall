@@ -22,7 +22,7 @@ export default function VendorLogin({ lang, setLang }) {
   };
 
   const handleDemoLogin = () => {
-    setIdentifier('merchant@hang24.shop');
+    setIdentifier('merchant@bigmallcambodia.com');
     setPassword('DemoPass123!');
     setIsLoading(true);
     setTimeout(() => {
