@@ -11,12 +11,23 @@ import VendorLogin from './pages/VendorLogin';
 import VendorDashboard from './pages/VendorDashboard';
 import StoreProfilePage from './pages/StoreProfilePage';
 import LoadingScreen from './components/LoadingScreen';
+import AccessGate from './components/AccessGate';
+
+const ACCESS_STORAGE_KEY = 'bigmall_access_granted_v1';
+const CORRECT_ACCESS_CODE = '089222085';
 
 export default function App() {
-  const [lang, setLang] = useState('en'); // 'en' | 'kh'
-  const [initialLoading, setInitialLoading] = useState(true);
+  const [lang, setLang] = useState('kh'); // Default Khmer
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    try {
+      return localStorage.getItem(ACCESS_STORAGE_KEY) === CORRECT_ACCESS_CODE;
+    } catch {
+      return false;
+    }
+  });
+  const [initialLoading, setInitialLoading] = useState(false);
 
-  const t = translations[lang] || translations.en;
+  const t = translations[lang] || translations.kh;
 
   useEffect(() => {
     document.documentElement.lang = lang === 'kh' ? 'km-KH' : 'en';
@@ -25,29 +36,65 @@ export default function App() {
       : "BigMallCambodia.com - Cambodia's Marketplace | Shop Local, Sell to Millions";
   }, [lang]);
 
+  const handleLockSite = () => {
+    try {
+      localStorage.removeItem(ACCESS_STORAGE_KEY);
+    } catch (e) {
+      console.warn(e);
+    }
+    setIsUnlocked(false);
+  };
+
   return (
     <ProductProvider>
       <StoreProvider>
         <OrderProvider>
-          {initialLoading && (
-            <LoadingScreen
-              onComplete={() => setInitialLoading(false)}
+          {!isUnlocked ? (
+            <AccessGate
+              onUnlock={() => {
+                setIsUnlocked(true);
+                setInitialLoading(true);
+              }}
               lang={lang}
-              minDuration={1400}
+              setLang={setLang}
             />
-          )}
+          ) : (
+            <>
+              {initialLoading && (
+                <LoadingScreen
+                  onComplete={() => setInitialLoading(false)}
+                  lang={lang}
+                  minDuration={1400}
+                />
+              )}
 
-          <BrowserRouter>
-          <Routes>
-            {/* Dedicated Loading / Splash Screen Preview */}
-            <Route
-              path="/loading"
-              element={<LoadingScreen lang={lang} isStandalone={true} />}
-            />
-            <Route
-              path="/splash"
-              element={<LoadingScreen lang={lang} isStandalone={true} />}
-            />
+              <BrowserRouter>
+              <Routes>
+                {/* Dedicated Loading / Splash Screen Preview */}
+                <Route
+                  path="/loading"
+                  element={<LoadingScreen lang={lang} isStandalone={true} />}
+                />
+                <Route
+                  path="/splash"
+                  element={<LoadingScreen lang={lang} isStandalone={true} />}
+                />
+                <Route
+                  path="/lock"
+                  element={
+                    <div className="min-h-screen flex items-center justify-center p-6 bg-slate-900 text-white text-center">
+                      <div className="space-y-4">
+                        <p className="text-sm">Locked BigMallCambodia session</p>
+                        <button
+                          onClick={handleLockSite}
+                          className="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-black font-bold rounded-xl"
+                        >
+                          Lock Site Now
+                        </button>
+                      </div>
+                    </div>
+                  }
+                />
             {/* Main Marketplace Landing Page */}
             <Route
               path="/"
@@ -106,6 +153,8 @@ export default function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
+        </>
+      )}
       </OrderProvider>
     </StoreProvider>
   </ProductProvider>

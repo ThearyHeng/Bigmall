@@ -129,6 +129,18 @@ export default function Footer({ t }) {
             <a href="#footer" className="hover:text-white/80 transition-colors">
               Terms of Service
             </a>
+            <button
+              onClick={() => {
+                try {
+                  localStorage.removeItem('bigmall_access_granted_v1');
+                } catch (e) {}
+                window.location.reload();
+              }}
+              className="hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-1 text-white/40 hover:text-white"
+              title="Lock website"
+            >
+              🔒 Lock Gate
+            </button>
           </div>
         </div>
 
