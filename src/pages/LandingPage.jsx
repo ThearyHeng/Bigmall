@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import LanguageSelector from '../components/LanguageSelector';
 import Hero from '../components/Hero';
@@ -20,6 +20,15 @@ export default function LandingPage({ t, lang, setLang }) {
   const [activeProduct, setActiveProduct] = useState(null);
   const [cart, setCart] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleOpenSeller = () => {
     navigate('/register');
@@ -43,12 +52,18 @@ export default function LandingPage({ t, lang, setLang }) {
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-[#d4b878]/30 selection:text-[#1e3a5f]">
       
-      {/* Floating Top-Right Language Switcher & Cart Pill */}
-      <div className="fixed top-4 right-4 md:top-6 md:right-6 z-50 flex items-center gap-2">
+      {/* Floating Top-Right Navigation & Language Switcher Pill */}
+      <div
+        className={`fixed top-3 right-3 sm:top-5 sm:right-6 z-50 flex items-center gap-2 p-1.5 rounded-2xl transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#0f2744]/95 text-white border border-white/20 shadow-2xl backdrop-blur-xl scale-95 sm:scale-100'
+            : 'bg-[#0f2744]/80 text-white border border-white/20 shadow-xl backdrop-blur-md'
+        }`}
+      >
         {/* Floating Cart Button */}
         <button
           onClick={() => setIsCartOpen(true)}
-          className="flex items-center gap-1.5 px-3.5 py-1.5 backdrop-blur-md border rounded-lg text-sm font-medium transition-all shadow-sm bg-[#8b6914] border-[#d4b878]/40 text-white hover:bg-[#a67e1a] active:scale-95 cursor-pointer"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all shadow-sm bg-[#8b6914] hover:bg-[#a67e1a] text-white active:scale-95 cursor-pointer"
           aria-label="View Cart"
         >
           <ShoppingBag className="w-3.5 h-3.5" />
@@ -63,13 +78,17 @@ export default function LandingPage({ t, lang, setLang }) {
         {/* Store Link */}
         <Link
           to="/shop"
-          className="hidden sm:flex items-center gap-1 px-3 py-1.5 backdrop-blur-md border rounded-lg text-xs font-bold transition-all shadow-sm bg-white/15 border-white/25 text-white hover:bg-white/25"
+          className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-white/90 hover:text-white hover:bg-white/10"
         >
-          <span>{lang === 'kh' ? 'ផ្សារទំនិញ' : 'Browse Shop (160+)'}</span>
+          <span>{lang === 'kh' ? 'ផ្សារទំនិញ' : 'Browse Shop'}</span>
         </Link>
 
         {/* Language Selector */}
-        <LanguageSelector lang={lang} setLang={setLang} />
+        <LanguageSelector
+          lang={lang}
+          setLang={setLang}
+          buttonClassName="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-white/10 hover:bg-white/20 border border-white/15 transition-all shadow-xs"
+        />
       </div>
 
       {/* Main Content */}
